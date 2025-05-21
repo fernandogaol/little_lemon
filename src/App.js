@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import Desserts from './Desserts';
 
 const italianDesserts = [
   {
@@ -64,14 +64,12 @@ const italianDesserts = [
   }
 ];
 function App() {
-  const listItems = italianDesserts.map(dessert =>{
-    const itemText = `${dessert.title} - ${dessert.price}`
-    return <li>{itemText}</li>
-  })
   return (
     <div className="App">
-     <ol>
-      {listItems}
+     <h2>Little Lemon Restaurant</h2>
+     <h3>Desserts</h3>
+     <ol>      
+      <Desserts data={italianDesserts}/>
      </ol>
     </div>
   );
