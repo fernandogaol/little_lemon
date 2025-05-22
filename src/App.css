@@ -1,7 +1,230 @@
+:root {
+  /* === COLOR PALETTE === */
+  --color-primary: #3a86ff;
+  --color-primary-light: #d0e8ff;
+  --color-accent: #a0c4ff;
+  --color-nav-gradient-start: #89c2d9;
+  --color-nav-gradient-end: #61a5c2;
+  --color-text-dark: #1e2a38;
+  --color-text-medium: #3a506b;
+  --color-background: #f8fbff;
+  --color-light: #ffffff;
+  --color-border: #cfd8dc;
+
+  /* === TYPOGRAPHY === */
+  --font-main: 'Open Sans', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  /* === SHADOWS === */
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 3px 8px rgba(58, 134, 255, 0.4);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+nav {
+  background: linear-gradient(90deg, var(--color-nav-gradient-start), var(--color-nav-gradient-end));
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-family: var(--font-heading);
+  box-shadow: var(--shadow-soft);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-text-medium);
+  font-weight: 700;
+  font-size: 20px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+/* ================================
+   MAIN CONTAINER
+================================ */
+.App {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 25px;
+  font-family: var(--font-main);
+  color: var(--color-text-dark);
+  background: var(--color-background);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   DESSERT LIST & CARD
+================================ */
+.italian-desserts {
+  margin-top: 2rem;
+}
+
+ol {
+  padding-left: 20px;
+  margin-top: 30px;
+}
+
 li {
-    list-style-type: decimal;
+  margin-bottom: 40px;
+  list-style-type: decimal;
+  border-left: 5px solid var(--color-primary);
+  padding-left: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(10px);
+}
+
+li h3 {
+  margin: 0 0 8px 0;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+li p {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+li img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(255, 111, 145, 0.3);
+}
+
+/* ================================
+   DESSERT CARD GRID (Optional)
+================================ */
+.dessert-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.dessert-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ================================
+   FORM SECTION
+================================ */
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: var(--color-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--color-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #ff3b6f;
+  box-shadow: 0 0 8px rgba(255, 59, 111, 0.5);
+}
+
+form button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+#feedback_form input {
+  padding: 0 !important;
+   box-shadow: none;
+}
+
+form button:hover {
+  background-color: #ff3b6f;
+}
+
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive navigation */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 10px;
   }
 
-  h2, h3{
-    margin-left: 20px;
+  nav a {
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
   }
+}
